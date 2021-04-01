@@ -86,16 +86,30 @@ const tangled2 = new DM(`Tangled`, `Rapunzel`);
 class DMCast extends DM {
     constructor(title, main, cast){
         super(title, main);
+            // super() references the "super" parameters from parent class
         this.cast = cast;
+            // this.parameterName = parameter for new parameters from class-externder
+    }
+
+    //BONUS
+    // Create a static method called "create" that can be used to create a new DMCast object 
+    static create(title, main, cast){
+            // 'create' is the name of the new static method to be used inside the DMCast
+        return new DMCast(title, main, cast);
+            // return 'new' DMCast with 
     }
 }
 
-const mulan3 = new DMCast(`Mulan`, `Fa Mulan`, { 
+const mulan3 = new DMCast(
+    `Mulan`, 
+    `Fa Mulan`, 
+    { 
     mulan: `Ming-Na Wen`,
     mushu: `Eddie Murphy`,
     shang: `BD Wang`,
     theEmperor: `Pat Morita`
-});
+    }
+    );
     console.log(mulan3);
         // DMCast {
         //     title: 'Mulan',
@@ -107,6 +121,9 @@ const mulan3 = new DMCast(`Mulan`, `Fa Mulan`, {
         //     theEmperor: 'Pat Morita'
         //     }
         // }
+    console.log(mulan3.storyline());
+        // In the movie Mulan, to save her father from death in the army, a young maiden named Fa Mulan secretly goes in his place and becomes one of China's greatest heroines in the process.
+
 
 const rapunzel3 = new DMCast(`Tangled`, `Rapunzel`, {
     rapunzel: `Mandy Moore`,
@@ -123,3 +140,24 @@ const rapunzel3 = new DMCast(`Tangled`, `Rapunzel`, {
         //     motherGothel: 'Donna Murphy'
         //     }
         // }
+
+//BONUS
+
+const moana = DMCast.create(`Moana`, `Moana of Motunui`, {
+    moana: `Auli'i Cravalho`, 
+    maui: `Dwanyne Johnson`,
+    grammaTala: `Rachel House`,
+    chiefTui: `Temuera Morrison`
+});
+console.log(moana);
+        // DMCast {
+        //     title: 'Moana',
+        //     main: 'Moana of Motunui',
+        //     cast: {
+        //     moana: "Auli'i Cravalho",
+        //     maui: 'Dwanyne Johnson',
+        //     grammaTala: 'Rachel House',
+        //     chiefTui: 'Temuera Morrison'
+        //     }
+        // }
+console.log(moana.storyline());
